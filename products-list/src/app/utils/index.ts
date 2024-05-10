@@ -48,6 +48,6 @@ export function getCategoryId(categoryName: string): number {
     case 'Casa e Decoração':
       return 10;
     default:
-      return -1;
+      return 0;
   }
 }

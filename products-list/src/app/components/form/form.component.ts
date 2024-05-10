@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Event, Router } from '@angular/router';
 import { Product } from 'src/app/product';
 
 import { getCategoryName, getCategoryId } from 'src/app/utils';
@@ -14,6 +14,7 @@ import { Category } from 'src/app/category';
 })
 export class FormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Product>();
+  @Output() closeModal = new EventEmitter<Event>();
   @Input() product!: Product;
   @Input() isEditForm: boolean = false;
   @Input() isEditing: boolean = false;
@@ -47,10 +48,13 @@ export class FormComponent implements OnInit {
       this.form.value.categoryId
     );
     console.log(this.form.value.categoryId);
-    console.log(this.form.value.categoryId);
+    console.log(this.form.value);
 
     this.onSubmit.emit(this.form.value);
     this.router.navigate(['/']);
+    if (this.isEditForm) {
+      this.closeModal.emit();
+    }
   }
   initializeForm() {
     if (this.isEditForm) {

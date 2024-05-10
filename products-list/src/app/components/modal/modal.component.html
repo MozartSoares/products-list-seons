@@ -20,7 +20,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <app-form [isEditForm]="true" [product]="product"></app-form>
+        <app-form
+          (closeModal)="close()"
+          [isEditForm]="true"
+          [product]="product"
+        ></app-form>
       </div>
       <div class="modal-footer">
         <app-action-button
