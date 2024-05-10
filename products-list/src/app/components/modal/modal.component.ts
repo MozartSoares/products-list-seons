@@ -12,12 +12,16 @@ export class ModalComponent implements OnInit {
   @Input() isVisible: boolean = false;
 
   @Output() removeProduct: EventEmitter<Product> = new EventEmitter<Product>();
+  @Output() reloadTable: EventEmitter<Event> = new EventEmitter<Event>();
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
 
   remove: IconDefinition = faTrash;
 
   dnone = 'visible';
 
-  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+  handleOnSubmit() {
+    this.reloadTable.emit();
+  }
 
   constructor() {}
 

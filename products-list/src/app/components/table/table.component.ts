@@ -40,12 +40,13 @@ export class TableComponent implements OnInit {
   }
 
   getProducts(): void {
+    this.loaded = false;
     this.productsService
       .getAll()
       .subscribe(
         (products) =>
-          (this.products = products.sort((a, b) =>
-            a.name.localeCompare(b.name)
+          (this.products = products.sort((a: Product, b: Product) =>
+            a.name?.toString().localeCompare(b.name?.toString())
           ))
       )
       .add(() => {
@@ -63,8 +64,8 @@ export class TableComponent implements OnInit {
 
   //UTILS
 
-  convert(id: number): string {
-    return getCategoryName(id);
+  convert(id: number | string): string {
+    return getCategoryName(Number(id));
   }
 
   handleShowModal(product: Product): void {
@@ -108,10 +109,10 @@ export class TableComponent implements OnInit {
     if (!term) {
       return true;
     }
-    term = term.toLowerCase();
+    term = term.toString().toLowerCase();
     return (
-      product.name.toLowerCase().includes(term) ||
-      this.convert(product.categoryId).toLowerCase().includes(term)
+      product.name?.toString().toLowerCase().includes(term) ||
+      this.convert(product.categoryId.toString()).toLowerCase().includes(term)
     );
   }
 }

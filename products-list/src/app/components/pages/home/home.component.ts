@@ -16,8 +16,14 @@ export class HomeComponent implements OnInit {
   isModalVisible: boolean = false;
 
   productToBeRemoved!: Product;
-  callTableMethod(product: Product): void {
+
+  //CHILD METHODS
+  callTableMethodRemove(product: Product): void {
     this.tableComponent.removeProductFromList(product);
+  }
+  async callTableMethodUpdate(): Promise<void> {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    this.tableComponent.ngOnInit();
   }
   showModal(product: Product): void {
     this.selectedProduct = product;
@@ -30,8 +36,7 @@ export class HomeComponent implements OnInit {
 
   modalRemoveProduct(removedProduct: Product): void {
     this.productToBeRemoved = removedProduct;
-    this.callTableMethod(this.productToBeRemoved);
-    console.log(removedProduct);
+    this.callTableMethodRemove(this.productToBeRemoved);
   }
 
   ngOnInit(): void {}

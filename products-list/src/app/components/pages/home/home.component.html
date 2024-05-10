@@ -10,6 +10,7 @@
     (closeModal)="closeModal()"
     [product]="selectedProduct"
     (removeProduct)="modalRemoveProduct($event)"
+    (reloadTable)="callTableMethodUpdate()"
   ></app-modal>
   <app-table
     (selectProduct)="showModal($event)"
