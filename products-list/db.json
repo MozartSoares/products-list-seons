@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Camiseta",
+      "quantity": 50,
+      "category": "Vestuário"
+    },
+    {
+      "id": 2,
+      "name": "Tênis",
+      "quantity": 30,
+      "category": "Calçados"
+    },
+    {
+      "id": 3,
+      "name": "Celular",
+      "quantity": 20,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 4,
+      "name": "Bola de Futebol",
+      "quantity": 40,
+      "category": "Esportes"
+    }
+  ]
+}
