@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   productToBeRemoved!: Product;
   callTableMethod(product: Product): void {
     this.tableComponent.removeProductFromList(product);
-    console.log(`produto foi de base ${product.name}`);
   }
   showModal(product: Product): void {
     this.selectedProduct = product;
