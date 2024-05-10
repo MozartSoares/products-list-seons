@@ -1,0 +1,52 @@
+<div class="container">
+  <form (ngSubmit)="submit()" [formGroup]="form" #formDir="ngForm">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome do produto:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Insira o nome do produto"
+        formControlName="name"
+        required
+      />
+      <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+        <p>O nome é obrigatório.</p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="quantity" class="form-label">Quantidade:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quantity"
+        formControlName="quantity"
+        placeholder="Insira a quantidade disponível do produto"
+      />
+    </div>
+    <div class="mb-3 select">
+      <label for="category" class="form-label"
+        >Selecione a categoria do produto:</label
+      >
+      <select
+        class="select-form"
+        id="category"
+        formControlName="category"
+        required
+      >
+        <option disabled selected>Escolha uma categoria:</option>
+        <option value="1">Esportes</option>
+        <option value="2">Lazer</option>
+        <option value="3">Eletrônicos</option>
+      </select>
+      <div
+        *ngIf="category.invalid && formDir.submitted"
+        class="validation-error"
+      >
+        <p>Escolha uma categoria.</p>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Criar</button>
+    <a routerLink="/" class="btn btn-warning">Voltar</a>
+  </form>
+</div>

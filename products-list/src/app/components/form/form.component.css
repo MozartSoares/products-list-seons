@@ -1,0 +1,25 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.select select {
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+}
+
+.container {
+  max-width: 900px;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+}

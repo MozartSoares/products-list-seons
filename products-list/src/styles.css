@@ -9,3 +9,10 @@
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.validation-error p {
+  color: #dc3545;
+  margin-top: 0.4em;
+  border-left: 3px solid #dc3545;
+  padding-left: 0.2em;
+}
