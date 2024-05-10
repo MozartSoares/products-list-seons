@@ -4,7 +4,8 @@ Bem-vindo ao projeto Lista de Produtos! Este é um aplicativo desenvolvido com A
 
 ## Funcionalidades
 
-- **Filtragem Dinâmica:** Permite filtrar os produtos com base em termos de pesquisa. 🔍
+- **Filtragem Dinâmica:** Permite filtrar os produtos por nome ou categoria, proporcionando uma experiência de busca intuitiva. 🔍
+- **Ordenação Alfabética:** Os produtos são organizados de forma alfabética para facilitar a busca e a navegação. 📝
 - **Paginação:** Divide a lista de produtos em páginas, facilitando a navegação. 📄
 - **CRUD de Produtos:** Possibilita criar, visualizar, editar e excluir produtos. ✏️ 🗑️
 - **Conexão Temporária com JSON Server:** Utiliza JSON Server para simular requisições à API até que a API backend esteja pronta. 🛠️
@@ -46,7 +47,7 @@ Ao clicar em um produto no dashboard, você pode:
 
 ## Backend
 
-Este projeto foi desenvolvido com foco no futuro backend, que irá utilizar um banco de dados com duas tabelas: categorias e produtos. O ID dos produtos funciona como chave estrangeira conectando-se com o `categoryId`. Os dados são automaticamente convertidos no frontend.
+Este projeto foi desenvolvido com foco no backend, utilizando um banco de dados com duas tabelas: categorias e produtos. O ID dos produtos funciona como chave estrangeira conectando-se com o `categoryId`. Os dados são automaticamente convertidos no frontend.
 
 Em breve, uma API backend desenvolvida em Yii2 será disponibilizada para servir este frontend. 🛠️
 
