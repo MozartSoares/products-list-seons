@@ -19,7 +19,7 @@
       <tr *ngFor="let product of PaginateProducts()">
         <td scope="row">{{ product.id }}</td>
         <td>{{ product.name | titlecase }}</td>
-        <td>{{ product.category | titlecase }}</td>
+        <td>{{ convert(product.categoryId) | titlecase }}</td>
         <td>{{ product.quantity }}</td>
         <td>
           <div class="button-control">

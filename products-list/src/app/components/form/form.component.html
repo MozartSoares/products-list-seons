@@ -30,17 +30,17 @@
       >
       <select
         class="select-form"
-        id="category"
-        formControlName="category"
+        id="categoryId"
+        formControlName="categoryId"
         required
       >
         <option disabled selected>Escolha uma categoria:</option>
-        <option value="1">Esportes</option>
-        <option value="2">Lazer</option>
-        <option value="3">Eletrônicos</option>
+        <option *ngFor="let category of categories">
+          {{ category.name }}
+        </option>
       </select>
       <div
-        *ngIf="category.invalid && formDir.submitted"
+        *ngIf="categoryId.invalid && formDir.submitted"
         class="validation-error"
       >
         <p>Escolha uma categoria.</p>

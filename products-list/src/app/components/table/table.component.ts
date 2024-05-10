@@ -3,6 +3,7 @@ import { ProductsService } from 'src/app/services/products.service';
 
 import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
 import { Product } from 'src/app/product';
+import { getCategoryName } from 'src/app/utils';
 
 import { faEye } from '@fortawesome/free-regular-svg-icons';
 import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
@@ -60,6 +61,12 @@ export class TableComponent implements OnInit {
     );
   }
 
+  //UTILS
+
+  convert(id: number): string {
+    return getCategoryName(id);
+  }
+
   handleShowModal(product: Product): void {
     this.selectProduct.emit(product);
   }
@@ -104,7 +111,7 @@ export class TableComponent implements OnInit {
     term = term.toLowerCase();
     return (
       product.name.toLowerCase().includes(term) ||
-      product.category.toLowerCase().includes(term)
+      this.convert(product.categoryId).toLowerCase().includes(term)
     );
   }
 }

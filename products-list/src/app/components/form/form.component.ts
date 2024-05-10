@@ -3,6 +3,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
 
+import { getCategoryName, getCategoryId } from 'src/app/utils';
+import { CategoriesService } from 'src/app/services/categories.service';
+import { Category } from 'src/app/category';
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -14,37 +18,53 @@ export class FormComponent implements OnInit {
   @Input() isEditForm: boolean = false;
   @Input() isEditing: boolean = false;
 
+  categories!: Category[];
   form!: FormGroup;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private categoriesService: CategoriesService
+  ) {}
+
+  //CONVERTERS
+  convert(id: number): string {
+    return getCategoryName(id);
+  }
+
+  convertReverse(name: string): number {
+    return getCategoryId(name);
+  }
 
   submit() {
     if (this.form.invalid) {
       return;
     }
-    if (this.form.value.quantity === null) {
+    if (this.form.value.quantity === null && this.form.value.quantity < 0) {
       this.form.value.quantity = 0;
     }
     console.log(this.form.value);
-    console.log('passando os dados corretamente');
+    this.form.value.categoryId = this.convertReverse(
+      this.form.value.categoryId
+    );
+    console.log(this.form.value.categoryId);
+    console.log(this.form.value.categoryId);
 
     this.onSubmit.emit(this.form.value);
     this.router.navigate(['/']);
   }
   initializeForm() {
-    console.log(this.product);
     if (this.isEditForm) {
       this.form = new FormGroup({
         name: new FormControl(this.product?.name),
         quantity: new FormControl(this.product?.quantity),
-        category: new FormControl(this.product?.category),
+        categoryId: new FormControl(this.convert(this.product?.categoryId)),
       });
       return;
     }
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       quantity: new FormControl(null),
-      category: new FormControl('', [Validators.required]),
+      categoryId: new FormControl('', [Validators.required]),
     });
   }
 
@@ -54,6 +74,13 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categoriesService
+      .getAll()
+      .subscribe((categories) => (this.categories = categories));
   }
 
   // GETTERS //
@@ -66,7 +93,7 @@ export class FormComponent implements OnInit {
     return this.form.get('quantity');
   }
 
-  get category() {
-    return this.form.get('category')!;
+  get categoryId() {
+    return this.form.get('categoryId')!;
   }
 }
