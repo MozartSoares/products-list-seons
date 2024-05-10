@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
+import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
+
+import { faEye } from '@fortawesome/free-regular-svg-icons';
+import { faPenSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-table',
@@ -7,6 +13,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableComponent implements OnInit {
   constructor() {}
+
+  visualize: IconDefinition = faEye;
+  remove: IconDefinition = faTrash;
+  edit: IconDefinition = faPenSquare;
 
   ngOnInit(): void {}
 }

@@ -1,0 +1,11 @@
+.icon {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  transform: scale(1.3);
+}
