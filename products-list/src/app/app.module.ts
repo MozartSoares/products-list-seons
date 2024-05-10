@@ -10,6 +10,7 @@ import { HomeComponent } from './components/pages/home/home.component';
 import { NewItemComponent } from './components/pages/new-item/new-item.component';
 import { TableComponent } from './components/table/table.component';
 import { ActionButtonComponent } from './components/buttons/action-button/action-button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { ActionButtonComponent } from './components/buttons/action-button/action
     TableComponent,
     ActionButtonComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
