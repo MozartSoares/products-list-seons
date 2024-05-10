@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { FormComponent } from './components/form/form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     ActionButtonComponent,
     SearchBarComponent,
     FormComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

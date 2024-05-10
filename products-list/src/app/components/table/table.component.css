@@ -12,3 +12,23 @@
 .table {
   border: 3px solid  rgb(49, 87, 138);
 }
+
+tfoot {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 1em auto;
+}
+
+.pagination button {
+  background-color: rgba(49, 88, 138, 0.867);
+}

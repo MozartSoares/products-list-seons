@@ -9,8 +9,14 @@
         <th class="col-2" scope="col">{{ "Ações" | titlecase }}</th>
       </tr>
     </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let product of products">
+    <tbody *ngIf="!loaded">
+      <tr></tr>
+      <td class="loader-container">
+        <app-loader></app-loader>
+      </td>
+    </tbody>
+    <tbody *ngIf="loaded" class="table-group-divider">
+      <tr *ngFor="let product of PaginateProducts()">
         <td scope="row">{{ product.id }}</td>
         <td>{{ product.name | titlecase }}</td>
         <td>{{ product.category | titlecase }}</td>
@@ -34,4 +40,27 @@
       </tr>
     </tbody>
   </table>
+  <div class="pagination">
+    <button
+      class="btn btn-primary"
+      *ngIf="hasPreviousPage()"
+      (click)="onPageChange(currentPage - 1)"
+    >
+      <
+    </button>
+    <button
+      class="btn btn-primary"
+      *ngFor="let page of getTotalPages()"
+      (click)="onPageChange(page)"
+    >
+      {{ page }}
+    </button>
+    <button
+      class="btn btn-primary"
+      *ngIf="hasNextPage()"
+      (click)="onPageChange(currentPage + 1)"
+    >
+      >
+    </button>
+  </div>
 </div>

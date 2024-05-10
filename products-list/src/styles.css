@@ -16,3 +16,11 @@
   border-left: 3px solid #dc3545;
   padding-left: 0.2em;
 }
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}

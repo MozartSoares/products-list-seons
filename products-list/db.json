@@ -1,28 +1,166 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "Camiseta",
-      "quantity": 50,
+      "id": 5,
+      "name": "Calça Jeans",
+      "quantity": 25,
       "category": "Vestuário"
     },
     {
-      "id": 2,
-      "name": "Tênis",
-      "quantity": 30,
+      "id": 6,
+      "name": "Camisa Polo",
+      "quantity": 35,
+      "category": "Vestuário"
+    },
+    {
+      "id": 7,
+      "name": "Sapato Social",
+      "quantity": 20,
       "category": "Calçados"
     },
     {
-      "id": 3,
-      "name": "Celular",
+      "id": 8,
+      "name": "Chinelo",
+      "quantity": 40,
+      "category": "Calçados"
+    },
+    {
+      "id": 9,
+      "name": "Fone de Ouvido",
+      "quantity": 15,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 10,
+      "name": "Smartwatch",
+      "quantity": 10,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 11,
+      "name": "Bola de Basquete",
+      "quantity": 30,
+      "category": "Esportes"
+    },
+    {
+      "id": 12,
+      "name": "Raquete de Tênis",
+      "quantity": 20,
+      "category": "Esportes"
+    },
+    {
+      "id": 13,
+      "name": "Mochila",
+      "quantity": 25,
+      "category": "Acessórios"
+    },
+    {
+      "id": 14,
+      "name": "Carteira",
+      "quantity": 45,
+      "category": "Acessórios"
+    },
+    {
+      "id": 15,
+      "name": "Óculos de Sol",
+      "quantity": 30,
+      "category": "Acessórios"
+    },
+    {
+      "id": 16,
+      "name": "Câmera Fotográfica",
+      "quantity": 15,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 17,
+      "name": "Livro",
+      "quantity": 50,
+      "category": "Livros"
+    },
+    {
+      "id": 18,
+      "name": "Caneta",
+      "quantity": 100,
+      "category": "Papelaria"
+    },
+    {
+      "id": 19,
+      "name": "Mochila Escolar",
+      "quantity": 20,
+      "category": "Acessórios"
+    },
+    {
+      "id": 20,
+      "name": "Mouse",
+      "quantity": 30,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 21,
+      "name": "Teclado",
+      "quantity": 25,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 22,
+      "name": "Notebook",
+      "quantity": 15,
+      "category": "Eletrônicos"
+    },
+    {
+      "id": 23,
+      "name": "Tablet",
       "quantity": 20,
       "category": "Eletrônicos"
     },
     {
-      "id": 4,
-      "name": "Bola de Futebol",
+      "id": 24,
+      "name": "Máquina de Café",
+      "quantity": 10,
+      "category": "Eletrodomésticos"
+    },
+    {
+      "id": 25,
+      "name": "Ferro de Passar",
+      "quantity": 25,
+      "category": "Eletrodomésticos"
+    },
+    {
+      "id": 26,
+      "name": "Liquidificador",
+      "quantity": 20,
+      "category": "Eletrodomésticos"
+    },
+    {
+      "id": 27,
+      "name": "Aspirador de Pó",
+      "quantity": 15,
+      "category": "Eletrodomésticos"
+    },
+    {
+      "id": 28,
+      "name": "Ventilador",
+      "quantity": 20,
+      "category": "Eletrodomésticos"
+    },
+    {
+      "id": 29,
+      "name": "Cadeira",
       "quantity": 40,
-      "category": "Esportes"
+      "category": "Móveis"
+    },
+    {
+      "id": 30,
+      "name": "Mesa",
+      "quantity": 30,
+      "category": "Móveis"
+    },
+    {
+      "id": 31,
+      "name": "Sofá",
+      "quantity": 25,
+      "category": "Móveis"
     }
   ]
 }

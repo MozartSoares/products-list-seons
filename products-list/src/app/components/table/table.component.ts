@@ -15,21 +15,60 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class TableComponent implements OnInit {
   products: Product[] = [];
+  currentPage: number = 1;
+  pageSize: number = 10;
+  loaded: boolean = false;
 
-  constructor(private productsService: ProductsService) {
-    this.getProducts();
-    console.log(this.products);
-  }
+  constructor(private productsService: ProductsService) {}
 
   visualize: IconDefinition = faEye;
   remove: IconDefinition = faTrash;
   edit: IconDefinition = faPenSquare;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getProducts();
+    this.checkLoad();
+  }
 
   getProducts(): void {
     this.productsService
       .getAll()
-      .subscribe((products) => (this.products = products));
+      .subscribe(
+        (products) =>
+          (this.products = products.sort((a, b) =>
+            a.name.localeCompare(b.name)
+          ))
+      )
+      .add(() => {
+        this.loaded = true;
+      });
+  }
+
+  PaginateProducts(): Product[] {
+    const startIndex = (this.currentPage - 1) * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    return this.products.slice(startIndex, endIndex);
+  }
+  onPageChange(pageNumber: number): void {
+    this.currentPage = pageNumber;
+  }
+
+  hasNextPage(): boolean {
+    return this.currentPage < this.getTotalPages().length;
+  }
+
+  hasPreviousPage(): boolean {
+    return this.currentPage > 1;
+  }
+
+  getTotalPages(): number[] {
+    const totalPages = Math.ceil(this.products.length / this.pageSize);
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  checkLoad() {
+    if (this.products.length > 0) {
+      this.loaded = true;
+    }
   }
 }
