@@ -48,6 +48,12 @@ export class TableComponent implements OnInit {
       });
   }
 
+  onProductRemoved(removedProduct: Product): void {
+    this.products = this.products.filter(
+      (product) => product.id !== removedProduct.id
+    );
+  }
+
   PaginateProducts(): Product[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
