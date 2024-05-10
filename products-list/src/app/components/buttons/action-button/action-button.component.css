@@ -4,8 +4,9 @@
 
 button {
   border: none;
+  transform: scale(1.8);
 }
 
 button:hover {
-  transform: scale(1.3);
+  transform: scale(1.5);
 }

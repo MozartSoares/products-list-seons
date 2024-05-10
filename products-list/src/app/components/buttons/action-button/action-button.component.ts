@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faEye } from '@fortawesome/free-regular-svg-icons';
 import {
   IconDefinition,
   faPenSquare,
@@ -25,9 +24,6 @@ export class ActionButtonComponent implements OnInit {
 
   onClick() {
     switch (this.icon) {
-      case faEye:
-        console.log(`visualizando o ${this.product.name}`);
-        break;
       case faTrash:
         console.log(`removendo o ${this.product.name}`);
         this.removeProduct(this.product);
