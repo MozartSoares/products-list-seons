@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
 
 import { IconDefinition } from '@fortawesome/free-regular-svg-icons';
@@ -15,6 +15,9 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class TableComponent implements OnInit {
   @Input() filterTerm: string = '';
+  @Input() modalRemovedProduct!: Product;
+
+  @Output() selectProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
   products: Product[] = [];
   filteredProducts: Product[] = this.products;
@@ -22,6 +25,8 @@ export class TableComponent implements OnInit {
   pageSize: number = 10;
   loaded: boolean = false;
   previousFilterTerm: string = '';
+
+  //modal
 
   constructor(private productsService: ProductsService) {}
 
@@ -48,12 +53,18 @@ export class TableComponent implements OnInit {
       });
   }
 
-  onProductRemoved(removedProduct: Product): void {
+  //API METHODS
+  removeProductFromList(removedProduct: Product): void {
     this.products = this.products.filter(
       (product) => product.id !== removedProduct.id
     );
   }
 
+  handleShowModal(product: Product): void {
+    this.selectProduct.emit(product);
+  }
+
+  //FILTERS
   PaginateProducts(): Product[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;

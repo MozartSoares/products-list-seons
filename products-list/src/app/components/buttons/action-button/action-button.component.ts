@@ -19,17 +19,18 @@ export class ActionButtonComponent implements OnInit {
   @Input() product!: Product;
 
   @Output() productRemoved = new EventEmitter<Product>();
+  @Output() viewProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor(private productsService: ProductsService) {}
 
   onClick() {
     switch (this.icon) {
       case faTrash:
-        console.log(`removendo o ${this.product.name}`);
         this.removeProduct(this.product);
         break;
       case faPenSquare:
         console.log(`editando o ${this.product.name}`);
+        this.viewProduct.emit(this.product);
     }
   }
 

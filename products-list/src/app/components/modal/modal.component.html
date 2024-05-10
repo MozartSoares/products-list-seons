@@ -1,0 +1,48 @@
+<div
+  class="modal-background"
+  (click)="close()"
+  [ngClass]="{ show: isVisible }"
+></div>
+<div class="modal-container" [ngClass]="{ show: isVisible }">
+  <div class="" role="document">
+    <div class="">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Detalhes do Produto</h5>
+        <button
+          type="button"
+          class="close"
+          id="x"
+          data-dismiss="modal"
+          aria-label="Fechar"
+          (click)="close()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><strong>ID:</strong> {{ product?.id }}</p>
+        <p><strong>Nome:</strong> {{ product?.name }}</p>
+        <p><strong>Categoria:</strong> {{ product?.category }}</p>
+        <p><strong>Quantidade:</strong> {{ product?.quantity }}</p>
+      </div>
+      <div class="modal-footer">
+        <app-action-button
+          class="mx-3"
+          [color]="'#ff4757'"
+          [icon]="remove"
+          [product]="product"
+          (productRemoved)="onProductRemoved($event)"
+        ></app-action-button>
+        <button type="button" id="edit" class="btn btn-primary">Editar</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="close()"
+        >
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

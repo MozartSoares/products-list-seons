@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Product } from 'src/app/product';
+
+import { TableComponent } from '../../table/table.component';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  filteredTerm: string = '';
+  @ViewChild(TableComponent) tableComponent!: TableComponent;
 
-  constructor() {}
+  filteredTerm: string = '';
+  selectedProduct!: Product;
+  isModalVisible: boolean = false;
+
+  productToBeRemoved!: Product;
+  callTableMethod(product: Product): void {
+    this.tableComponent.removeProductFromList(product);
+    console.log(`produto foi de base ${product.name}`);
+  }
+  showModal(product: Product): void {
+    this.selectedProduct = product;
+    this.isModalVisible = true;
+  }
+
+  closeModal(): void {
+    this.isModalVisible = false;
+  }
+
+  modalRemoveProduct(removedProduct: Product): void {
+    this.productToBeRemoved = removedProduct;
+    this.callTableMethod(this.productToBeRemoved);
+    console.log(removedProduct);
+  }
 
   ngOnInit(): void {}
 

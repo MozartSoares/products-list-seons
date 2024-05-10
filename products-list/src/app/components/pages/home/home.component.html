@@ -5,5 +5,14 @@
     ></app-search-bar>
     <a routerLink="/new" class="btn btn-success">Cadastrar</a>
   </div>
-  <app-table [filterTerm]="filteredTerm"></app-table>
+  <app-modal
+    [isVisible]="isModalVisible"
+    (closeModal)="closeModal()"
+    [product]="selectedProduct"
+    (removeProduct)="modalRemoveProduct($event)"
+  ></app-modal>
+  <app-table
+    (selectProduct)="showModal($event)"
+    [filterTerm]="filteredTerm"
+  ></app-table>
 </div>

@@ -27,12 +27,13 @@
               [color]="'#31578A'"
               [icon]="edit"
               [product]="product"
+              (viewProduct)="handleShowModal($event)"
             ></app-action-button>
             <app-action-button
               [color]="'#ff4757'"
               [icon]="remove"
               [product]="product"
-              (productRemoved)="onProductRemoved($event)"
+              (productRemoved)="removeProductFromList($event)"
             ></app-action-button>
           </div>
         </td>
