@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { NewItemComponent } from './components/pages/new-item/new-item.component
 import { TableComponent } from './components/table/table.component';
 import { ActionButtonComponent } from './components/buttons/action-button/action-button.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NewItemComponent,
     TableComponent,
     ActionButtonComponent,
+    SearchBarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FontAwesomeModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    FontAwesomeModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
