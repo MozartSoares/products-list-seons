@@ -7,10 +7,11 @@
   <input
     type="text"
     class="form-control"
-    placeholder="Pesquisar"
-    aria-label="Pesquisar"
+    placeholder="Pesquisar por nome ou categoria..."
+    aria-label="Pesquisar por nome ou categoria..."
     aria-describedby="button-addon2"
-    [(ngModel)]="term"
+    [(ngModel)]="filterTerm"
+    (ngModelChange)="onSearchTextChanged()"
   />
   <div class="input-group-append"></div>
 </div>

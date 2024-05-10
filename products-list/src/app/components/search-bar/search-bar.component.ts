@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 import { IconDefinition, faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,15 +9,13 @@ import { IconDefinition, faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class SearchBarComponent implements OnInit {
   icon: IconDefinition = faSearch;
-  term: string = '';
+  filterTerm: string = '';
 
-  filter(term: string) {
-    console.log(term);
-    //todo
-    //criar filtragem por nome e categoria
+  @Output() searchTextChanged = new EventEmitter<string>();
+
+  onSearchTextChanged() {
+    this.searchTextChanged.emit(this.filterTerm);
   }
-
-  //todo
 
   constructor() {}
 
