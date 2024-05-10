@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { NewItemComponent } from './components/pages/new-item/new-item.component';
 import { TableComponent } from './components/table/table.component';
+import { ActionButtonComponent } from './components/buttons/action-button/action-button.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { TableComponent } from './components/table/table.component';
     HomeComponent,
     NewItemComponent,
     TableComponent,
+    ActionButtonComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
