@@ -1,6 +1,6 @@
 # Lista de Produtos 📋
 
-Bem-vindo ao projeto Lista de Produtos! Este é um aplicativo desenvolvido com Angular, com o objetivo de fornecer uma lista de produtos de forma minimalista e eficiente. 🚀
+Bem-vindo ao projeto Lista de Produtos! Este é um aplicativo com front-end desenvolvido com Angular, com o objetivo de fornecer uma lista de produtos de forma minimalista, performática e eficiente. 🚀
 
 ## Funcionalidades
 
