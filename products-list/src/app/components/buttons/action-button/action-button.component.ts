@@ -29,7 +29,6 @@ export class ActionButtonComponent implements OnInit {
         this.removeProduct(this.product);
         break;
       case faPenSquare:
-        console.log(`editando o ${this.product.name}`);
         this.viewProduct.emit(this.product);
     }
   }

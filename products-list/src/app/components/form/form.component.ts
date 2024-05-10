@@ -51,6 +51,7 @@ export class FormComponent implements OnInit {
     );
 
     this.onSubmit.emit(this.form.value);
+    //timeout para garantir o tempo da tabela atualizar antes do usuário retornar
     setTimeout(() => {
       this.router.navigate(['/']);
       if (this.isEditForm) {

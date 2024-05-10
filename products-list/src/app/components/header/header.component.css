@@ -1,5 +1,5 @@
 header {
-  padding: 2em;
+  padding: 2em 0;
   background-color: #D9DDE1;
   text-align: center;
 }
@@ -8,4 +8,28 @@ h1 {
   color: #31578A;
   font-weight: bold;
   font-size: 3em;
+}
+
+img {
+  max-height: 80px;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+.container {
+    flex-direction: column;
+  }
+
+  header {
+    padding: 1em 0;
+  }
+  h1 {
+    font-size: 2em;
+  }
 }
