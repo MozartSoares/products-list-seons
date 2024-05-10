@@ -46,7 +46,7 @@
         <p>Escolha uma categoria.</p>
       </div>
     </div>
-    <button type="submit" class="btn btn-success">Criar</button>
-    <a routerLink="/" class="btn btn-warning">Voltar</a>
+    <button type="submit" class="btn btn-success">Confirmar</button>
+    <a *ngIf="!isEditForm" routerLink="/" class="btn btn-warning">Voltar</a>
   </form>
 </div>

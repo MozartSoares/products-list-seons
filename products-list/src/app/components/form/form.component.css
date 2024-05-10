@@ -23,3 +23,14 @@ form {
   gap: 2em;
 
 }
+.btn {
+  color: #f2f2f2;
+}
+
+.btn-primary {
+  background-color: #31578A;
+}
+
+.btn-primary:hover {
+  background-color: #1d4170;
+}

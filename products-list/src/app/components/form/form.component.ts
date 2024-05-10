@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
@@ -10,6 +10,9 @@ import { Product } from 'src/app/product';
 })
 export class FormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Product>();
+  @Input() product!: Product;
+  @Input() isEditForm: boolean = false;
+  @Input() isEditing: boolean = false;
 
   form!: FormGroup;
 
@@ -28,14 +31,29 @@ export class FormComponent implements OnInit {
     this.onSubmit.emit(this.form.value);
     this.router.navigate(['/']);
   }
-
-  ngOnInit(): void {
-    // inicializando formulário
+  initializeForm() {
+    console.log(this.product);
+    if (this.isEditForm) {
+      this.form = new FormGroup({
+        name: new FormControl(this.product?.name),
+        quantity: new FormControl(this.product?.quantity),
+        category: new FormControl(this.product?.category),
+      });
+      return;
+    }
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       quantity: new FormControl(null),
       category: new FormControl('', [Validators.required]),
     });
+  }
+
+  ngOnChanges(): void {
+    this.initializeForm();
+  }
+
+  ngOnInit(): void {
+    this.initializeForm();
   }
 
   // GETTERS //
