@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/product';
 
 @Component({
@@ -12,7 +13,7 @@ export class FormComponent implements OnInit {
 
   form!: FormGroup;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   submit() {
     if (this.form.invalid) {
@@ -25,6 +26,7 @@ export class FormComponent implements OnInit {
     console.log('passando os dados corretamente');
 
     this.onSubmit.emit(this.form.value);
+    this.router.navigate(['/']);
   }
 
   ngOnInit(): void {
