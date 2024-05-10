@@ -17,9 +17,11 @@ export class TableComponent implements OnInit {
   @Input() filterTerm: string = '';
 
   products: Product[] = [];
+  filteredProducts: Product[] = this.products;
   currentPage: number = 1;
   pageSize: number = 10;
   loaded: boolean = false;
+  previousFilterTerm: string = '';
 
   constructor(private productsService: ProductsService) {}
 
@@ -29,7 +31,6 @@ export class TableComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
-    this.checkLoad();
   }
 
   getProducts(): void {
@@ -50,40 +51,38 @@ export class TableComponent implements OnInit {
   PaginateProducts(): Product[] {
     const startIndex = (this.currentPage - 1) * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    return this.filterProducts().slice(startIndex, endIndex);
+    this.filterProducts();
+    return this.filteredProducts.slice(startIndex, endIndex);
   }
-  onPageChange(pageNumber: number): void {
+  PageChange(pageNumber: number, action: string): void {
+    if (action === 'back' && this.currentPage === 1) {
+      return;
+    }
+    if (action === 'next' && this.currentPage === this.getTotalPages().length) {
+      return;
+    }
     this.currentPage = pageNumber;
   }
 
-  hasNextPage(): boolean {
-    return this.currentPage < this.getTotalPages().length;
-  }
-
-  hasPreviousPage(): boolean {
-    return this.currentPage > 1;
-  }
-
   getTotalPages(): number[] {
-    const totalPages = Math.ceil(this.products.length / this.pageSize);
+    this.filterProducts();
+    const totalPages = Math.ceil(this.filteredProducts.length / this.pageSize);
     return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
 
-  checkLoad() {
-    if (this.products.length > 0) {
-      this.loaded = true;
+  filterProducts() {
+    if (this.filterTerm !== this.previousFilterTerm) {
+      this.currentPage = 1;
+      this.previousFilterTerm = this.filterTerm;
     }
-  }
-
-  filterProducts(): Product[] {
-    return this.products.filter((product) =>
+    this.filteredProducts = this.products.filter((product) =>
       this.matchSearchTerm(product, this.filterTerm)
     );
   }
 
   matchSearchTerm(product: Product, term: string): boolean {
     if (!term) {
-      return true; // Se o termo de pesquisa estiver vazio, mostrar todos os produtos
+      return true;
     }
     term = term.toLowerCase();
     return (

@@ -43,22 +43,20 @@
   <div class="pagination">
     <button
       class="btn btn-primary"
-      *ngIf="hasPreviousPage()"
-      (click)="onPageChange(currentPage - 1)"
+      (click)="PageChange(currentPage - 1, 'back')"
     >
       <
     </button>
     <button
       class="btn btn-primary"
       *ngFor="let page of getTotalPages()"
-      (click)="onPageChange(page)"
+      (click)="PageChange(page, '')"
     >
       {{ page }}
     </button>
     <button
       class="btn btn-primary"
-      *ngIf="hasNextPage()"
-      (click)="onPageChange(currentPage + 1)"
+      (click)="PageChange(currentPage + 1, 'next')"
     >
       >
     </button>
