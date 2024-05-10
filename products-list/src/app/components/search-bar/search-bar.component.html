@@ -1,0 +1,17 @@
+<div class="input-group">
+  <div class="input-group-prepend">
+    <span class="input-group-text">
+      <fa-icon [icon]="icon"></fa-icon>
+    </span>
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Pesquisar por nome ou categoria..."
+    aria-label="Pesquisar por nome ou categoria..."
+    aria-describedby="button-addon2"
+    [(ngModel)]="filterTerm"
+    (ngModelChange)="onSearchTextChanged()"
+  />
+  <div class="input-group-append"></div>
+</div>

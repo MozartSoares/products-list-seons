@@ -1,0 +1,64 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr class="header-row">
+        <th scope="col">{{ "id" | titlecase }}</th>
+        <th scope="col">{{ "nome" | titlecase }}</th>
+        <th scope="col">{{ "categoria" | titlecase }}</th>
+        <th scope="col">{{ "quantidade" | titlecase }}</th>
+        <th class="col-2" scope="col">{{ "Ações" | titlecase }}</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="!loaded">
+      <tr></tr>
+      <td class="loader-container">
+        <app-loader></app-loader>
+      </td>
+    </tbody>
+    <tbody *ngIf="loaded" class="table-group-divider">
+      <tr *ngFor="let product of PaginateProducts()">
+        <td scope="row">{{ product.id }}</td>
+        <td>{{ product.name | titlecase }}</td>
+        <td>{{ convert(product.categoryId) | titlecase }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <div class="button-control">
+            <app-action-button
+              [color]="'#31578A'"
+              [icon]="edit"
+              [product]="product"
+              (viewProduct)="handleShowModal($event)"
+            ></app-action-button>
+            <app-action-button
+              [color]="'#ff4757'"
+              [icon]="remove"
+              [product]="product"
+              (productRemoved)="removeProductFromList($event)"
+            ></app-action-button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="pagination">
+    <button
+      class="btn btn-primary"
+      (click)="PageChange(currentPage - 1, 'back')"
+    >
+      <
+    </button>
+    <button
+      class="btn btn-primary"
+      *ngFor="let page of getTotalPages()"
+      (click)="PageChange(page, '')"
+    >
+      {{ page }}
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="PageChange(currentPage + 1, 'next')"
+    >
+      >
+    </button>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="group">
+    <app-search-bar
+      (searchTextChanged)="filterProducts($event)"
+    ></app-search-bar>
+    <a routerLink="/new" class="btn btn-success">Cadastrar</a>
+  </div>
+  <app-modal
+    [isVisible]="isModalVisible"
+    (closeModal)="closeModal()"
+    [product]="selectedProduct"
+    (removeProduct)="modalRemoveProduct($event)"
+    (reloadTable)="callTableMethodUpdate()"
+  ></app-modal>
+  <app-table
+    (selectProduct)="showModal($event)"
+    [filterTerm]="filteredTerm"
+  ></app-table>
+</div>

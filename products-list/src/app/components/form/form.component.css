@@ -1,0 +1,36 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.select select {
+  max-width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: black;
+}
+
+.container {
+  max-width: 900px;
+
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+
+}
+.btn {
+  color: #f2f2f2;
+}
+
+.btn-primary {
+  background-color: #31578A;
+}
+
+.btn-primary:hover {
+  background-color: #1d4170;
+}
