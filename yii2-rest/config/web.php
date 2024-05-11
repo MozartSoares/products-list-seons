@@ -51,20 +51,19 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-                    'rules' => [
+            'rules' => [
+            'GET v1/categories' => 'v1/categories/index',
+            'GET v1/categories/<id:\d+>' => 'v1/categories/view',
+            'POST v1/categories' => 'v1/categories/create',
+            'PUT v1/categories/<id:\d+>' => 'v1/categories/update',
+            'DELETE v1/categories/<id:\d+>' => 'v1/categories/delete',
             // Rotas para produtos
-            [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => ['products'], // Controlador de produtos
-                'pluralize' => false,
+            'GET v1/products' => 'v1/products/index',
+            'GET v1/products/<id:\d+>' => 'v1/products/view',
+            'POST v1/products' => 'v1/products/create',
+            'PUT v1/products/<id:\d+>' => 'v1/products/update',
+            'DELETE v1/products/<id:\d+>' => 'v1/products/delete',
             ],
-            // Rotas para categorias
-            [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => ['categories'], // Controlador de categorias
-                'pluralize' => false,
-            ],
-        ],
         ],
     ],
     'params' => $params,
