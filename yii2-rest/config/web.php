@@ -11,6 +11,27 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => [
+    'v1' => [
+        'class' => 'app\modules\v1',
+        'controllerNamespace' => 'app\modules\v1\controllers',
+        'rules' => [
+            // Rotas para produtos
+            [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => ['products'], // Controlador de produtos
+                'pluralize' => false,
+            ],
+            // Rotas para categorias
+            [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => ['categories'], // Controlador de categorias
+                'pluralize' => false,
+            ],
+        ],
+    ],
+    // outros módulos...
+],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
