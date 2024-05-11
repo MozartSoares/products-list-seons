@@ -13,24 +13,9 @@ $config = [
     ],
     'modules' => [
     'v1' => [
-        'class' => 'app\modules\v1',
+        'class' => 'app\modules\v1\Module',
         'controllerNamespace' => 'app\modules\v1\controllers',
-        'rules' => [
-            // Rotas para produtos
-            [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => ['products'], // Controlador de produtos
-                'pluralize' => false,
-            ],
-            // Rotas para categorias
-            [
-                'class' => 'yii\rest\UrlRule',
-                'controller' => ['categories'], // Controlador de categorias
-                'pluralize' => false,
-            ],
-        ],
     ],
-    // outros módulos...
 ],
     'components' => [
         'request' => [
@@ -66,8 +51,20 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
+                    'rules' => [
+            // Rotas para produtos
+            [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => ['products'], // Controlador de produtos
+                'pluralize' => false,
             ],
+            // Rotas para categorias
+            [
+                'class' => 'yii\rest\UrlRule',
+                'controller' => ['categories'], // Controlador de categorias
+                'pluralize' => false,
+            ],
+        ],
         ],
     ],
     'params' => $params,
