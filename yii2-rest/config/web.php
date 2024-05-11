@@ -55,6 +55,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+            //Rotas para categories
             'GET v1/categories' => 'v1/categories/index',
             'GET v1/categories/<id:\d+>' => 'v1/categories/view',
             'POST v1/categories' => 'v1/categories/create',

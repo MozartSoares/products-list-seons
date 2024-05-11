@@ -33,7 +33,7 @@ class Products extends \yii\db\ActiveRecord
             [['name', 'categoryId'], 'required'],
             [['quantity', 'categoryId'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['categoryId' => 'Id']],
+            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['categoryId' => 'id']],
         ];
     }
 
@@ -51,12 +51,12 @@ class Products extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[Category]].
+     * Gets query for [[Categories]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getCategory()
     {
-        return $this->hasOne(Categories::class, ['Id' => 'categoryId']);
+        return $this->hasOne(Categories::class, ['id' => 'categoryId']);
     }
 }
