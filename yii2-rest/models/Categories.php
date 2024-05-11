@@ -17,7 +17,7 @@ class Categories extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Categories';
+        return 'categories';
     }
 
     /**
@@ -37,7 +37,7 @@ class Categories extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'Id' => 'ID',
+            'id' => 'ID',
             'name' => 'Name',
         ];
     }

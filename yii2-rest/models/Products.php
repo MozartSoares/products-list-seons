@@ -12,7 +12,7 @@ use Yii;
  * @property int|null $quantity
  * @property int $categoryId
  *
- * @property Category $category
+ * @property Categories $categories
  */
 class Products extends \yii\db\ActiveRecord
 {
@@ -33,7 +33,7 @@ class Products extends \yii\db\ActiveRecord
             [['name', 'categoryId'], 'required'],
             [['quantity', 'categoryId'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Category::class, 'targetAttribute' => ['categoryId' => 'Id']],
+            [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Categories::class, 'targetAttribute' => ['categoryId' => 'Id']],
         ];
     }
 
@@ -57,6 +57,6 @@ class Products extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Category::class, ['Id' => 'categoryId']);
+        return $this->hasOne(Categories::class, ['Id' => 'categoryId']);
     }
 }
