@@ -1,37 +1,59 @@
 # Lista de Produtos 📋
 
-Bem-vindo ao projeto Lista de Produtos! Este é um aplicativo com front-end desenvolvido com Angular, com o objetivo de fornecer uma lista de produtos de forma minimalista, performática e eficiente. 🚀
+Bem-vindo ao projeto Lista de Produtos! Este é um aplicativo com front-end desenvolvido com Angular e backend desenvolvido com Yii2, com o objetivo de fornecer uma lista de produtos de forma minimalista, performática e eficiente. 🚀
 
-## Funcionalidades
+## Front-end
+
+### Funcionalidades
 
 - **Filtragem Dinâmica:** Permite filtrar os produtos por nome ou categoria, proporcionando uma experiência de busca intuitiva. 🔍
 - **Ordenação Alfabética:** Os produtos são organizados de forma alfabética para facilitar a busca e a navegação. 📝
 - **Paginação:** Divide a lista de produtos em páginas, facilitando a navegação. 📄
 - **CRUD de Produtos:** Possibilita criar, visualizar, editar e excluir produtos. ✏️ 🗑️
-- **Conexão Temporária com JSON Server:** Utiliza JSON Server para simular requisições à API até que a API backend esteja pronta. 🛠️
 - **Validação de Formulários:** Utiliza a validação de formulários do Angular para garantir dados válidos e consistentes. ✅
 - **UI Responsiva e Amigável:** Utiliza o framework Bootstrap para criar componentes responsivos e amigáveis. 🎨
 - **Componentes Reutilizáveis:** O código é modular e escalável, com componentes reutilizáveis para acelerar o desenvolvimento e manter a consistência da UI. 🔄
 - **Loader para Melhor UX:** Implementa loaders para indicar carregamento de dados e melhorar a experiência do usuário durante as interações. ⏳
 
-## Como Executar o Projeto
+### Como Executar o Projeto
 
 1. Instale as dependências do projeto:
     ```
     npm install
     ```
 
-2. Inicie o servidor JSON Server (simulando a API):
-    ```
-    npm run server
-    ```
-
-3. Inicie o aplicativo Angular:
+2. Inicie o aplicativo Angular:
     ```
     ng serve
     ```
 
-4. Acesse o aplicativo no navegador em [http://localhost:4200/](http://localhost:4200/). 🌐
+3. Acesse o aplicativo no navegador em [http://localhost:4200/](http://localhost:4200/). 🌐
+
+## Back-end
+
+### Funcionalidades
+
+- **Conexão com Backend Yii2:** Integrado com uma API backend desenvolvida em Yii2, permitindo operações CRUD de produtos e categorias.
+- **Banco de Dados MySQL:** Utiliza um banco de dados MySQL para armazenar os dados dos produtos e categorias.
+- **Migrações Automáticas:** A API cria automaticamente o banco de dados e suas tabelas quando utiliza o comando `php yii migrate`.
+- **Controllers para Manipulação de Dados:** Utiliza dois controllers para manipular o banco de dados através das operações CRUD.
+
+### Como Executar o Projeto
+
+1. Instale as dependências do projeto com Composer:
+    ```
+    composer install
+    ```
+
+2. Inicie o servidor PHP para rodar a API na porta 8000:
+    ```
+    php -S 127.0.0.1:8000
+    ```
+
+3. Execute as migrações para criar o banco de dados e as tabelas:
+    ```
+    php yii migrate
+    ```
 
 ## Telas e Rotas
 
@@ -44,12 +66,6 @@ O aplicativo possui duas telas acessíveis por diferentes rotas:
 Ao clicar em um produto no dashboard, você pode:
 - **Visualizar:** Visualizar os detalhes do produto.
 - **Editar:** Editar os dados do produto, incluindo nome, quantidade e categoria. 🖊️
-
-## Backend
-
-Este projeto foi desenvolvido com foco no backend, utilizando um banco de dados com duas tabelas: categorias e produtos. O ID dos produtos funciona como chave estrangeira conectando-se com o `categoryId`. Os dados são automaticamente convertidos no frontend.
-
-Em breve, uma API backend desenvolvida em Yii2 será disponibilizada para servir este frontend. 🛠️
 
 ## Design e Arquitetura
 
