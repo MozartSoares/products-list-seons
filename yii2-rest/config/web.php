@@ -25,9 +25,6 @@ $config = [
             'application/json' => 'yii\web\JsonParser',
         ],
         ],
-        'as optionsFilter' => [
-        'class' => 'app\filters\OptionsFilter',
-    ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

@@ -10,11 +10,9 @@ return [
         $db = $event->sender;
         $dbName = 'products-db';
 
-        // Criar o banco de dados se ainda não existir
         $command = $db->createCommand("CREATE DATABASE IF NOT EXISTS `$dbName`");
         $command->execute();
 
-        // Usar o banco de dados recém-criado
         $db->createCommand("USE `$dbName`")->execute();
     },
     // Schema cache options (for production environment)
