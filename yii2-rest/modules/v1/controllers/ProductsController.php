@@ -23,10 +23,6 @@ class ProductsController extends ActiveController
             ],
         ];
 
-        // remove authentication filter
-        $auth = $behaviors['authenticator'];
-        unset($behaviors['authenticator']);
-        
 
         // Adicionar o filtro CORS para permitir solicitações de http://localhost:4200
         $behaviors['corsFilter'] = [
@@ -39,11 +35,6 @@ class ProductsController extends ActiveController
                 'Access-Control-Request-Headers' => ['Origin', 'X-Requested-With', 'Content-Type', 'accept', 'Authorization']
             ],
         ];
-
-        // re-add authentication filter
-        $behaviors['authenticator'] = $auth;
-        // avoid authentication on CORS-pre-flight requests (HTTP OPTIONS method)
-        $behaviors['authenticator']['except'] = ['options'];
 
 
         return $behaviors;
