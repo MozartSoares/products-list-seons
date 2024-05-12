@@ -12,18 +12,18 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-    'v1' => [
-        'class' => 'app\modules\v1\Module',
-        'controllerNamespace' => 'app\modules\v1\controllers',
+        'v1' => [
+            'class' => 'app\modules\v1\Module',
+            'controllerNamespace' => 'app\modules\v1\controllers',
+        ],
     ],
-],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'cgoQP9LeM7am2r9qVQ1LEL0vKVVTbByV',
             'parsers' => [
             'application/json' => 'yii\web\JsonParser',
-            ],
+        ],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -67,6 +67,8 @@ $config = [
             'POST v1/products' => 'v1/products/create',
             'PUT v1/products/<id:\d+>' => 'v1/products/update',
             'DELETE v1/products/<id:\d+>' => 'v1/products/delete',
+            'OPTIONS v1/products' => 'v1/products/options',
+            'OPTIONS v1/products/<id:\d+>' => 'v1/products/options',
             ],
         ],
     ],

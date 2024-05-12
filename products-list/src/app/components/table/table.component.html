@@ -10,10 +10,15 @@
       </tr>
     </thead>
     <tbody *ngIf="!loaded">
-      <tr></tr>
-      <td class="loader-container">
-        <app-loader></app-loader>
-      </td>
+      <tr>
+        <td></td>
+        <td></td>
+        <td class="loader-container">
+          <app-loader></app-loader>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
     </tbody>
     <tbody *ngIf="loaded" class="table-group-divider">
       <tr *ngFor="let product of PaginateProducts()">

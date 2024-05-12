@@ -25,13 +25,17 @@ class m240511_050756_migration extends Migration
         ]);
 
         // Inserir os dados na tabela categories
-        $this->batchInsert('categories', ['name'], [
-            ['Eletrônicos'],
-            ['Roupas'],
-            ['Alimentos'],
-            ['Bebidas'],
-            ['Livros'],
-            ['Ferramentas'],
+        $this->batchInsert('categories', ['id', 'name'], [
+            [1, 'Roupas'],
+            [2, 'Calçados'],
+            [3, 'Eletrônicos'],
+            [4, 'Esportes'],
+            [5, 'Tecnologia'],
+            [6, 'Livros'],
+            [7, 'Material Escolar'],
+            [8, 'Móveis'],
+            [9, 'Higiene Pessoal'],
+            [10, 'Casa e Decoração'],
         ]);
 
         // Criar a tabela products
@@ -54,37 +58,37 @@ class m240511_050756_migration extends Migration
         );
 
         // Inserir os dados na tabela products
-        $this->batchInsert('products', ['name', 'quantity', 'categoryId'], [
-            ['Smartphone Samsung', 100, 1],
-            ['Laptop Dell', 50, 1],
-            ['Fone de Ouvido Sony', 200, 1],
-            ['TV LG', 30, 1],
-            ['Tablet Apple', 80, 1],
-            ['Camiseta Branca', 150, 2],
-            ['Calça Jeans', 120, 2],
-            ['Tênis Nike', 90, 2],
-            ['Vestido Floral', 70, 2],
-            ['Casaco de Inverno', 40, 2],
-            ['Arroz Integral', 300, 3],
-            ['Feijão Carioca', 250, 3],
-            ['Macarrão Espaguete', 180, 3],
-            ['Óleo de Soja', 200, 3],
-            ['Leite Integral', 150, 3],
-            ['Refrigerante Coca-Cola', 400, 4],
-            ['Água Mineral', 500, 4],
-            ['Suco de Laranja', 300, 4],
-            ['Cerveja Heineken', 200, 4],
-            ['Vinho Tinto', 100, 4],
-            ['Harry Potter e a Pedra Filosofal', 80, 5],
-            ['O Senhor dos Anéis', 120, 5],
-            ['Dom Casmurro', 150, 5],
-            ['1984', 100, 5],
-            ['A Arte da Guerra', 90, 5],
-            ['Martelo', 50, 6],
-            ['Chave de Fenda', 70, 6],
-            ['Serra Elétrica', 20, 6],
-            ['Parafusadeira', 40, 6],
-            ['Broca de Metal', 60, 6],
+        $this->batchInsert('products', ['id', 'name', 'quantity', 'categoryId'], [
+            [1, 'Camisa Polo', 50, 1],
+            [2, 'Calça Jeans', 40, 1],
+            [3, 'Tênis Casual', 60, 1],
+            [4, 'Vestido Floral', 30, 2],
+            [5, 'Sapato de Salto', 20, 2],
+            [6, 'Blusa de Tricô', 40, 2],
+            [7, 'Smartphone', 50, 3],
+            [8, 'Notebook', 25, 3],
+            [9, 'Fone de Ouvido', 40, 3],
+            [10, 'Bola de Futebol', 30, 4],
+            [11, 'Raquete de Tênis', 20, 4],
+            [12, 'Legging Esportiva', 40, 4],
+            [13, 'TV LED', 30, 5],
+            [14, 'Console de Videogame', 25, 5],
+            [15, 'Câmera Fotográfica', 20, 5],
+            [16, 'Livro de Romance', 30, 6],
+            [17, 'Livro de Ficção Científica', 25, 6],
+            [18, 'Livro de Autoajuda', 20, 6],
+            [19, 'Caneta Esferográfica', 30, 7],
+            [20, 'Caderno de Anotações', 25, 7],
+            [21, 'Lápis de Cor', 20, 7],
+            [22, 'Mesa de Jantar', 30, 8],
+            [23, 'Sofá de Couro', 25, 8],
+            [24, 'Guarda-Roupa', 20, 8],
+            [25, 'Escova de Dentes', 30, 9],
+            [26, 'Shampoo Anticaspa', 25, 9],
+            [27, 'Sabonete Líquido', 20, 9],
+            [28, 'Toalha de Banho', 30, 10],
+            [29, 'Jogo de Cama', 25, 10],
+            [30, 'Travesseiro de Penas', 20, 10],
         ]);
     }
 

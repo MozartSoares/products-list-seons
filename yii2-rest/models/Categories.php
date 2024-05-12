@@ -7,7 +7,7 @@ use Yii;
 /**
  * This is the model class for table "Categories".
  *
- * @property int $Id
+ * @property int $id
  * @property string $name
  */
 class Categories extends \yii\db\ActiveRecord

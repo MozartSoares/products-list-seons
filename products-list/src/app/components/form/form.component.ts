@@ -42,7 +42,7 @@ export class FormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    if (this.form.value.quantity === null && this.form.value.quantity < 0) {
+    if (this.form.value.quantity === null || this.form.value.quantity < 0) {
       this.form.value.quantity = 0;
     }
 
@@ -52,17 +52,18 @@ export class FormComponent implements OnInit {
 
     this.onSubmit.emit(this.form.value);
     //timeout para garantir o tempo da tabela atualizar antes do usuário retornar
+
+    if (this.isEditForm) {
+      this.submitPutForm(this.product.id!, this.form.value);
+    } else {
+      this.submitPostForm(this.form.value);
+    }
     setTimeout(() => {
       this.router.navigate(['/']);
       if (this.isEditForm) {
         this.closeModal.emit(), 2000;
       }
     });
-    if (this.isEditForm) {
-      this.submitPutForm(this.product.id!, this.form.value);
-      return;
-    }
-    this.submitPostForm(this.form.value);
   }
   initializeForm() {
     if (this.isEditForm) {
