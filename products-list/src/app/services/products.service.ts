@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl = 'http://localhost:3000/products';
+  private apiUrl = 'http://localhost:8000/web/v1/products';
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>(`${this.apiUrl}?per-page=1000`);
   }
 
   removeProduct(id: number) {
@@ -23,7 +23,7 @@ export class ProductsService {
   }
 
   postProduct(formData: Omit<Product, 'id'>): Observable<FormData> {
-    return this.http.post<FormData>(this.apiUrl, formData);
+    return this.http.post<FormData>(`${this.apiUrl}`, formData);
   }
 
   putProduct(id: number, formData: Omit<Product, 'id'>): Observable<FormData> {
